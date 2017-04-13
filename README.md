@@ -3,6 +3,7 @@ Asp.Net three layer architecture : Web, BLL, IDAL, DAL, Model, DALFactory
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+
 项目文件架构
  
 1. Web
@@ -92,6 +93,7 @@ GetSqlServerConnectionString得到数据库连接字符串，也可省去该项�
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
  
 实现步骤过程
+
 1、创建Model，实现业务实体。
 2、创建IDAL，实现接口。
 3、创建SQLServerDAL，实现接口里的方法。
@@ -110,6 +112,7 @@ GetSqlServerConnectionString得到数据库连接字符串，也可省去该项�
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
 
 各层间的访问过程
+
 1、传入值，将值进行类型转换(为整型)。
 2、创建BLL层的content.cs对象c，通过对象c访问BLL层的方法GetContentInfo(ID)调用BLL层。
 3、BLL层方法GetContentInfo(ID)中取得数据访问层SQLServerDAL的实例,实例化IDAL层的接口对象dal，这个对象是由工厂层DALFactory创建的，然后返回IDAL层传入值所查找的内容的方法dal.GetContentInfo(id)。
